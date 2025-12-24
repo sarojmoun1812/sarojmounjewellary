@@ -44,152 +44,228 @@ const featuredProducts = [
 export default function HomePage() {
   return (
     <div className="overflow-hidden">
-      {/* Hero Section with Video Background */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Stunning Silver Jewellery Background */}
+      {/* Hero Section - Split Layout */}
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-powder-50 via-white to-powder-100">
+        {/* Animated Background Elements */}
         <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=2340"
-            alt="Exquisite silver jewellery collection"
-            fill
-            className="object-cover"
-            style={{ opacity: 0.4 }}
-            priority
-          />
-
-          {/* Elegant Darker Blue Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-powder-200/70 via-powder-300/60 to-white/75" />
-        </div>
-
-        {/* Animated Cute Elements */}
-        <div className="absolute inset-0">
-          {/* Soft Floating Circles */}
-          <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-gradient-to-br from-powder-400/30 to-powder-500/25 rounded-full blur-3xl animate-blob" />
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-powder-300/25 to-powder-400/30 rounded-full blur-3xl animate-blob animation-delay-2000" />
-          <div className="absolute bottom-0 left-1/2 w-[500px] h-[500px] bg-gradient-to-br from-powder-300/25 to-powder-500/30 rounded-full blur-3xl animate-blob animation-delay-4000" />
+          {/* Floating Gradient Orbs */}
+          <div className="absolute top-20 left-10 w-[600px] h-[600px] bg-gradient-to-br from-powder-300/40 to-powder-500/30 rounded-full blur-3xl animate-blob" />
+          <div className="absolute bottom-20 right-10 w-[700px] h-[700px] bg-gradient-to-br from-powder-400/30 to-powder-600/25 rounded-full blur-3xl animate-blob animation-delay-2000" />
+          <div className="absolute top-1/2 left-1/2 w-[500px] h-[500px] bg-gradient-to-br from-powder-200/35 to-powder-400/30 rounded-full blur-3xl animate-blob animation-delay-4000" />
           
-          {/* Cute Sparkles */}
-          {[...Array(25)].map((_, i) => (
+          {/* Elegant Sparkles */}
+          {[...Array(30)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-1.5 h-1.5 bg-powder-500 rounded-full shadow-lg"
+              className="absolute w-2 h-2 bg-powder-500 rounded-full shadow-lg"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
               }}
               animate={{
-                scale: [0, 1.2, 0],
-                opacity: [0, 0.8, 0],
+                scale: [0, 1.5, 0],
+                opacity: [0, 0.9, 0],
               }}
               transition={{
                 duration: 2 + Math.random() * 2,
                 repeat: Infinity,
-                delay: Math.random() * 2,
+                delay: Math.random() * 3,
               }}
             />
           ))}
         </div>
 
-        {/* Hero Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.div 
-              className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-md border-2 border-powder-300 px-6 py-3 rounded-full mb-8 shadow-lg"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
+        {/* Content Container */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Text Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="space-y-8"
             >
-              <Sparkles className="h-5 w-5 text-powder-500" />
-              <span className="text-sm text-powder-600 font-semibold">Premium 925 Silver Collection</span>
-            </motion.div>
+              <motion.div 
+                className="inline-flex items-center gap-2 bg-white/95 backdrop-blur-md border-2 border-powder-400 px-6 py-3 rounded-full shadow-xl"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2 }}
+              >
+                <Sparkles className="h-5 w-5 text-powder-600" />
+                <span className="text-sm text-powder-700 font-bold">Premium 925 Silver Collection</span>
+              </motion.div>
 
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-heading font-bold mb-8 leading-tight">
-              <motion.span 
-                className="block bg-gradient-to-r from-gray-700 via-gray-800 to-gray-700 bg-clip-text text-transparent"
+              <motion.h1 
+                className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold leading-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                Timeless Elegance
-              </motion.span>
-              <motion.span 
-                className="block bg-gradient-to-r from-powder-500 via-powder-600 to-powder-500 bg-clip-text text-transparent mt-2"
+                <span className="block bg-gradient-to-r from-gray-800 via-gray-900 to-gray-800 bg-clip-text text-transparent">
+                  Timeless
+                </span>
+                <span className="block bg-gradient-to-r from-powder-600 via-powder-700 to-powder-600 bg-clip-text text-transparent mt-2"
+                  style={{
+                    backgroundSize: "200% 200%",
+                    animation: "gradient 3s ease infinite",
+                  }}
+                >
+                  Elegance
+                </span>
+                <span className="block bg-gradient-to-r from-gray-700 via-gray-800 to-gray-700 bg-clip-text text-transparent mt-2">
+                  Crafted with Soul
+                </span>
+              </motion.h1>
+
+              <motion.p 
+                className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-xl"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+              >
+                Discover handcrafted ethnic silver jewellery that tells your story. Each piece is a masterpiece of tradition and artistry.
+              </motion.p>
+
+              <motion.div 
+                className="flex items-center gap-4 text-sm text-powder-700 font-semibold"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+              >
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-powder-600 rounded-full animate-pulse" />
+                  <span>Hallmarked</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-powder-600 rounded-full animate-pulse animation-delay-2000" />
+                  <span>Authentic</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-powder-600 rounded-full animate-pulse animation-delay-4000" />
+                  <span>Premium Finish</span>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                className="flex gap-4 flex-wrap pt-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                style={{
-                  backgroundSize: "200% 200%",
-                  animation: "gradient 3s ease infinite",
+                transition={{ delay: 0.7 }}
+              >
+                <Link href="/shop">
+                  <Button size="lg" className="text-base px-8 py-6 bg-gradient-to-r from-powder-600 to-powder-700 hover:from-powder-700 hover:to-powder-800 text-white font-bold shadow-2xl shadow-powder-600/50 hover:shadow-powder-700/60 transition-all duration-300 rounded-full">
+                    Shop Collection
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link href="/about">
+                  <Button size="lg" variant="outline" className="text-base px-8 py-6 border-2 border-powder-500 text-gray-800 hover:bg-powder-100 transition-all duration-300 rounded-full backdrop-blur-sm bg-white/80">
+                    Our Story
+                  </Button>
+                </Link>
+              </motion.div>
+
+              {/* Trust Indicators */}
+              <motion.div 
+                className="flex items-center gap-6 flex-wrap pt-6"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8 }}
+              >
+                <motion.div 
+                  className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-md border border-powder-300"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <Star className="h-4 w-4 text-powder-600 fill-powder-600" />
+                  <span className="text-sm font-semibold text-gray-700">4.9/5 Rating</span>
+                </motion.div>
+                <motion.div 
+                  className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-md border border-powder-300"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <Shield className="h-4 w-4 text-powder-600" />
+                  <span className="text-sm font-semibold text-gray-700">925 Hallmarked</span>
+                </motion.div>
+                <motion.div 
+                  className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-md border border-powder-300"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <Heart className="h-4 w-4 text-powder-600 fill-powder-600" />
+                  <span className="text-sm font-semibold text-gray-700">10K+ Customers</span>
+                </motion.div>
+              </motion.div>
+            </motion.div>
+
+            {/* Right Side - Peacock Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative lg:h-[700px] h-[500px]"
+            >
+              {/* Decorative Background Circle */}
+              <div className="absolute inset-0 bg-gradient-to-br from-powder-400/30 to-powder-600/20 rounded-full blur-3xl scale-110" />
+              
+              {/* Main Image Container */}
+              <motion.div
+                className="relative h-full w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white/50"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Image
+                  src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?q=80&w=2340"
+                  alt="Exquisite silver jewellery collection"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                
+                {/* Subtle Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-powder-900/20 via-transparent to-transparent" />
+                
+                {/* Floating Badge */}
+                <motion.div
+                  className="absolute top-6 right-6 bg-white/95 backdrop-blur-md px-6 py-3 rounded-full shadow-xl border-2 border-powder-400"
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 1, type: "spring" }}
+                >
+                  <div className="flex items-center gap-2">
+                    <Sparkles className="h-4 w-4 text-powder-600" />
+                    <span className="text-sm font-bold bg-gradient-to-r from-powder-600 to-powder-700 bg-clip-text text-transparent">
+                      Premium Collection
+                    </span>
+                  </div>
+                </motion.div>
+              </motion.div>
+
+              {/* Decorative Elements */}
+              <motion.div
+                className="absolute -bottom-4 -right-4 w-32 h-32 bg-powder-500/30 rounded-full blur-2xl"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.3, 0.5, 0.3],
                 }}
-              >
-                Crafted with Soul
-              </motion.span>
-            </h1>
-
-            <motion.p 
-              className="text-xl md:text-2xl text-gray-700 mb-12 max-w-3xl mx-auto leading-relaxed"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.7 }}
-            >
-              Discover handcrafted ethnic silver jewellery that tells your story.
-              <br />
-              <span className="text-powder-600 font-semibold">Hallmarked • Authentic • Premium Finish</span>
-            </motion.p>
-
-            <motion.div 
-              className="flex gap-6 justify-center flex-wrap"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9 }}
-            >
-              <Link href="/shop">
-                <Button size="lg" className="text-lg px-10 py-7 bg-gradient-to-r from-powder-500 to-powder-600 hover:from-powder-600 hover:to-powder-700 text-white font-semibold shadow-2xl shadow-powder-500/50 hover:shadow-powder-600/60 transition-all duration-300 rounded-full">
-                  Shop Collection
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="/about">
-                <Button size="lg" variant="outline" className="text-lg px-10 py-7 border-2 border-powder-400 text-gray-800 hover:bg-powder-50 transition-all duration-300 rounded-full backdrop-blur-sm bg-white/70">
-                  Our Story
-                </Button>
-              </Link>
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+              <motion.div
+                className="absolute -top-4 -left-4 w-24 h-24 bg-powder-400/40 rounded-full blur-2xl"
+                animate={{
+                  scale: [1.2, 1, 1.2],
+                  opacity: [0.4, 0.6, 0.4],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
             </motion.div>
-
-            {/* Trust Indicators */}
-            <motion.div 
-              className="mt-20 flex items-center justify-center gap-12 flex-wrap text-gray-700 text-sm"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.1 }}
-            >
-              <motion.div 
-                className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg border border-powder-200"
-                whileHover={{ scale: 1.05, borderColor: "#A7C7E7" }}
-              >
-                <Star className="h-5 w-5 text-powder-500 fill-powder-500" />
-                <span className="font-semibold">4.9/5 Rating</span>
-              </motion.div>
-              <motion.div 
-                className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg border border-powder-200"
-                whileHover={{ scale: 1.05, borderColor: "#A7C7E7" }}
-              >
-                <Shield className="h-5 w-5 text-powder-500" />
-                <span className="font-semibold">Hallmarked Silver</span>
-              </motion.div>
-              <motion.div 
-                className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg border border-powder-200"
-                whileHover={{ scale: 1.05, borderColor: "#A7C7E7" }}
-              >
-                <Heart className="h-5 w-5 text-powder-500 fill-powder-500" />
-                <span className="font-semibold">10,000+ Happy Customers</span>
-              </motion.div>
-            </motion.div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Scroll Indicator */}
@@ -200,7 +276,7 @@ export default function HomePage() {
         >
           <div className="w-7 h-12 border-2 border-powder-400 rounded-full flex items-start justify-center p-2 bg-white/30 backdrop-blur-sm">
             <motion.div 
-              className="w-1.5 h-2.5 bg-powder-500 rounded-full shadow-lg"
+              className="w-1.5 h-2.5 bg-powder-600 rounded-full shadow-lg"
               animate={{ y: [0, 16, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
