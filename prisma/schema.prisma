@@ -8,25 +8,35 @@ datasource db {
 }
 
 model Product {
-  id          String   @id @default(uuid())
-  name        String
-  slug        String   @unique
-  description String   @db.Text
-  price       Int      // in paise/cents
-  category    String
-  images      String[] // Array of Cloudinary URLs
-  stock       Int      @default(0)
-  weight      String?  // e.g., "25g"
-  material    String   @default("925 Silver")
-  featured    Boolean  @default(false)
-  bestseller  Boolean  @default(false)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  orderItems  OrderItem[]
+  id             String   @id @default(uuid())
+  name           String
+  slug           String   @unique
+  description    String   @db.Text
+  silverWeight   Float    // in grams (e.g., 25.5)
+  makingCharges  Int      // fixed making charges in paise
+  profitPercent  Float    @default(20.0) // profit margin percentage
+  fixedPrice     Int?     // optional fixed price override in paise
+  category       String
+  images         String[] // Array of Cloudinary URLs
+  stock          Int      @default(0)
+  material       String   @default("925 Silver")
+  featured       Boolean  @default(false)
+  bestseller     Boolean  @default(false)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  orderItems     OrderItem[]
 
   @@index([category])
   @@index([featured])
   @@index([bestseller])
+}
+
+model SilverRate {
+  id        String   @id @default(uuid())
+  ratePerGram Float  // in rupees
+  source    String   @default("MetalPriceAPI")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Customer {

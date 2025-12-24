@@ -213,8 +213,8 @@ export default function HomePage() {
                 transition={{ duration: 0.3 }}
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?q=80&w=2340"
-                  alt="Exquisite silver jewellery collection"
+                  src="/peacock-jewellery.jpeg"
+                  alt="Exquisite silver jewellery collection on majestic peacock"
                   fill
                   className="object-cover"
                   priority
