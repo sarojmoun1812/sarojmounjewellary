@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/components/product-card";
 import { ArrowRight, Shield, Truck, RefreshCw, Sparkles, Star, Heart } from "lucide-react";
 import { motion } from "framer-motion";
+import { TestimonialsSection } from "@/components/testimonials";
 
 // Premium silver jewellery images
 const featuredProducts = [
@@ -647,6 +648,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <TestimonialsSection />
 
       {/* CTA Section */}
       <section className="py-20 bg-primary text-primary-foreground">

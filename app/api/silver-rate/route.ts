@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { db } from "@/lib/db";
+import { prisma } from "@/lib/db";
 
 // Metal Price API - Free tier: 100 requests/month
 // Alternative: https://metalpriceapi.com/
@@ -46,7 +46,7 @@ async function fetchSilverRateFromAPI(): Promise<number> {
 export async function GET() {
   try {
     // Check for cached rate in database
-    const latestRate = await db.silverRate.findFirst({
+    const latestRate = await prisma.silverRate.findFirst({
       orderBy: { updatedAt: "desc" },
     });
 
@@ -60,7 +60,7 @@ export async function GET() {
       const newRate = await fetchSilverRateFromAPI();
 
       // Store in database
-      const updatedRate = await db.silverRate.create({
+      const updatedRate = await prisma.silverRate.create({
         data: {
           ratePerGram: newRate,
           source: "MetalPriceAPI",
@@ -110,7 +110,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const updatedRate = await db.silverRate.create({
+    const updatedRate = await prisma.silverRate.create({
       data: {
         ratePerGram,
         source: "Manual Admin Update",

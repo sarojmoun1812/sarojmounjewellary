@@ -13,11 +13,11 @@ export function Footer() {
               Premium handcrafted silver jewellery for the modern Indian woman.
             </p>
             <div className="flex space-x-4">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" 
+              <a href="https://instagram.com/sarojmounfashion" target="_blank" rel="noopener noreferrer" 
                  className="hover:text-accent transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.youtube.com/@sarojmoun1207" target="_blank" rel="noopener noreferrer"
                  className="hover:text-accent transition-colors">
                 <Youtube className="h-5 w-5" />
               </a>
@@ -40,9 +40,9 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Information</h4>
             <ul className="space-y-2 text-sm text-gray-300">
               <li><Link href="/about" className="hover:text-accent transition-colors">About Us</Link></li>
-              <li><Link href="/care" className="hover:text-accent transition-colors">Care Guide</Link></li>
+              <li><Link href="/contact" className="hover:text-accent transition-colors">Contact Us</Link></li>
               <li><Link href="/shipping" className="hover:text-accent transition-colors">Shipping Policy</Link></li>
-              <li><Link href="/returns" className="hover:text-accent transition-colors">Returns</Link></li>
+              <li><Link href="/return-policy" className="hover:text-accent transition-colors">Returns & Refunds</Link></li>
             </ul>
           </div>
 
@@ -52,17 +52,26 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-gray-300">
               <li className="flex items-center space-x-2">
                 <Phone className="h-4 w-4" />
-                <span>+91 98765 43210</span>
+                <span>+91 81687 90171</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="h-4 w-4" />
-                <span>hello@sarojmoun.com</span>
+                <span>sarojmounjewellary@gmail.com</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="mt-8 pt-8 border-t border-gray-700 text-center text-sm text-gray-300">
+          <div className="flex flex-wrap justify-center gap-4 mb-4">
+            <Link href="/privacy" className="hover:text-accent transition-colors">Privacy Policy</Link>
+            <span>•</span>
+            <Link href="/terms" className="hover:text-accent transition-colors">Terms & Conditions</Link>
+            <span>•</span>
+            <Link href="/return-policy" className="hover:text-accent transition-colors">Return Policy</Link>
+            <span>•</span>
+            <Link href="/shipping" className="hover:text-accent transition-colors">Shipping Policy</Link>
+          </div>
           <p>&copy; {new Date().getFullYear()} Saroj Moun Jewellery. All rights reserved.</p>
         </div>
       </div>
